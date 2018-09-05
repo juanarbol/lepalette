@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 
 import ColorPicker from './components/color-picker/ColorPicker'
-import ModalColorPicker from './components/modal-color-picker/ModalColorPicker'
+// import ModalColorPicker from './components/modal-color-picker/ModalColorPicker'
 
 import {
   constantinColors,
