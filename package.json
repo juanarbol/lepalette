@@ -4,7 +4,7 @@
   "main": "build/source.js",
   "module": "build/source.js",
   "files": [
-    "dist",
+    "build",
     "README.md"
   ],
   "homepage": "http://juanarbol.github.io/lepalette",
@@ -18,8 +18,8 @@
     "tinycolor2": "^1.4.1"
   },
   "scripts": {
-    "build:npm": "rm -rf dist && NODE_ENV=production babel src/ --out-dir build --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "postinstall": "npm run build:npm",
+    "prepublish": "npm run build:npm",
+    "build:npm": "rm -rf build && NODE_ENV=production babel src/ --out-dir build --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
