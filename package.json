@@ -29,6 +29,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "gh-pages": "^1.2.0"
   }
 }
