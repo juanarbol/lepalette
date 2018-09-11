@@ -1,6 +1,6 @@
 {
   "name": "lepalette",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "build/index.js",
   "module": "build/index.js",
   "files": [
