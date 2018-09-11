@@ -1,5 +1,7 @@
+require('./index.scss')
+require('./app.scss')
+
 const appComponent = require('./App')
-const appStyle = require('./index.css')
 const Html = require('./indexTemplate')
 
 module.exports = {

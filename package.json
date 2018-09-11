@@ -1,8 +1,8 @@
 {
   "name": "lepalette",
   "version": "0.2.5",
-  "main": "build/source.js",
-  "module": "build/source.js",
+  "main": "build/index.js",
+  "module": "build/index.js",
   "files": [
     "build",
     "README.md"
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "prepublish": "npm run build:npm",
-    "build:npm": "rm -rf build && NODE_ENV=production babel src/ --out-dir build --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build:npm": "webpack -p",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
@@ -33,14 +33,19 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^3.1.2",
-    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^1.0.0",
     "gh-pages": "^1.2.0",
+    "node-sass": "^4.9.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0"
   }
 }
