@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+// import axios from 'axios'
+
+import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -14,7 +17,7 @@ import {
   traditionalColors
 } from './helpers/computeColors'
 
-import './app.scss'
+import './app.css'
 
 class App extends Component {
   constructor () {
@@ -22,7 +25,8 @@ class App extends Component {
     this.state = {
       selectedColor:'#8D00FF',
       paletteOne: [],
-      paletteTwo: []
+      paletteTwo: [],
+      apiResponse: null
     }
   }
 
@@ -32,6 +36,22 @@ class App extends Component {
 
   _replaceColor (withValue, index) {
 
+  }
+
+  async _sendPalette (selectedPalette) {
+    return null
+    // try {
+    //   if (!selectedPalette) {
+    //     throw TypeError('No has seleccionado una paleta')
+    //   }
+
+    //   const cssFilePromise = axios.post('http://localhost:4202/palette', { palette: selectedPalette })
+    //   const response = await cssFilePromise.data
+
+    //   this.setState({ apiResponse: response })
+    // } catch (err) {
+    //   throw err.message
+    // }
   }
 
   _handleColorChange (selectedColor) {
@@ -73,6 +93,7 @@ class App extends Component {
 
     return (
       <div className="root-container">
+        <h1>{ this.state.apiResponse }</h1>
         <Grid
           container
           alignItems="center"
@@ -104,14 +125,30 @@ class App extends Component {
           spacing={24}
         >
           <Grid item sm={12} xs={12} md={6}>
-            <Paper>
+            <Paper className="palette-container">
+              <Button
+                variant="contained"
+                className="export-button"
+                style={ { backgroundColor: selectedColor } }
+                onClick={ () => this._sendPalette(paletteOne) }
+              >
+                Generar esta paleta
+              </Button>
               <List>
                 { colorPalleteOne }
               </List>
             </Paper>
           </Grid>
           <Grid item sm={12} xs={12} md={6}>
-            <Paper>
+            <Paper className="palette-container">
+              <Button
+                variant="contained"
+                className="export-button"
+                style={ { backgroundColor: selectedColor } }
+                onClick={ () => this._sendPalette(paletteTwo) }
+              >
+                Generar esta paleta
+              </Button>
               <List>
                 { colorPalleteTwo }
               </List>
@@ -123,4 +160,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

@@ -1,11 +1,14 @@
 {
   "name": "lepalette",
   "version": "0.1.0",
-  "private": true,
+  "main": "index.js",
   "homepage": "http://juanarbol.github.io/lepalette",
   "dependencies": {
     "@material-ui/core": "^3.0.2",
     "@material-ui/icons": "^3.0.1",
+    "axios": "^0.18.0",
+    "node-sass-chokidar": "^1.3.3",
+    "npm-run-all": "^4.1.3",
     "react": "^16.4.2",
     "react-color": "^2.14.1",
     "react-dom": "^16.4.2",
@@ -13,8 +16,14 @@
     "tinycolor2": "^1.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "install": "npm install",
+    "postinstall": "npm run build build",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
