@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-// import axios from 'axios'
+import axios from 'axios'
 
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
@@ -39,19 +39,19 @@ class App extends Component {
   }
 
   async _sendPalette (selectedPalette) {
-    return null
-    // try {
-    //   if (!selectedPalette) {
-    //     throw TypeError('No has seleccionado una paleta')
-    //   }
+    // return null
+    try {
+      if (!selectedPalette) {
+        throw TypeError('No has seleccionado una paleta')
+      }
 
-    //   const cssFilePromise = axios.post('http://localhost:4202/palette', { palette: selectedPalette })
-    //   const response = await cssFilePromise.data
+      const cssFilePromise = axios.post('http://localhost:4205/palette', { palette: selectedPalette })
+      const response = await cssFilePromise.data
 
-    //   this.setState({ apiResponse: response })
-    // } catch (err) {
-    //   throw err.message
-    // }
+      this.setState({ apiResponse: response })
+    } catch (err) {
+      throw err.message
+    }
   }
 
   _handleColorChange (selectedColor) {
